@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finalizar compra — Bytehub</title>
+    <link rel="stylesheet" href="comprar.css" />
+</head>
+
+<body>
+
+    <div class="topo-compra">
+
+        <div class="marca-topo">
+            <span class="ponto"></span> Bytehub
+        </div>
+
+        <div class="selo-seguranca">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z" />
+            </svg>
+            Ambiente de pagamento seguro
+        </div>
+
+    </div>
+
+    <div class="pagina-compra">
+
+        <h1 class="titulo-checkout">Finalizar compra</h1>
+
+        <p class="subtitulo-checkout">
+            Preencha seus dados para ter acesso imediato ao curso.
+        </p>
+
+        <form id="form-compra">
+
+            <div class="grade-checkout">
+
+                <!-- Formulário -->
+
+                <div class="cartao">
+
+                    <div class="bloco">
+
+                        <p class="rotulo-bloco">
+                            <span class="n">1</span> Seus dados
+                        </p>
+
+                        <div class="campo">
+
+                            <label for="campo-nome">Nome completo</label>
+
+                            <input
+                                id="campo-nome"
+                                name="nome"
+                                type="text"
+                                placeholder="Como está no seu documento"
+                                required
+                            />
+
+                        </div>
+
+                        <div class="linha-campos">
+
+                            <div class="campo">
+
+                                <label for="campo-email">E-mail</label>
+
+                                <input
+                                    id="campo-email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="voce@email.com"
+                                    required
+                                />
+
+                            </div>
+
+                            <div class="campo">
+
+                                <label for="campo-whats">WhatsApp</label>
+
+                                <input
+                                    id="campo-whats"
+                                    name="whatsapp"
+                                    type="text"
+                                    placeholder="(00) 000000000"
+                                    maxlength="15"
+                                    required
+                                    oninput="let v = this.value.replace(/\D/g, ''); this.value = v.length > 2 ? '(' + v.substring(0,2) + ') ' + v.substring(2,11) : v;"
+                                />
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="campo-cpf">CPF</label>
+
+                            <input
+                                id="campo-cpf"
+                                name="cpf"
+                                type="text"
+                                placeholder="000000000-00"
+                                maxlength="12"
+                                required
+                                oninput="let v = this.value.replace(/\D/g, ''); this.value = v.length > 9 ? v.substring(0,9) + '-' + v.substring(9,11) : v;"
+                            />
+
+                        </div>
+
+                    </div>
+
+                    <div class="bloco">
+
+                        <p class="rotulo-bloco">
+                            <span class="n">2</span> Forma de pagamento
+                        </p>
+
+                        <div class="abas-pagamento">
+
+                            <button
+                                class="aba-pg ativa"
+                                data-pg="cartao"
+                                type="button"
+                            >
+
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <path d="M2 10h20" />
+                                </svg>
+
+                                Cartão
+
+                            </button>
+
+                            <button
+                                class="aba-pg"
+                                data-pg="pix"
+                                type="button"
+                            >
+
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M8 3v4M16 3v4M8 17v4M16 17v4M3 8h4M3 16h4M17 8h4M17 16h4" />
+                                </svg>
+
+                                Pix
+
+                            </button>
+
+                            <button
+                                class="aba-pg"
+                                data-pg="boleto"
+                                type="button"
+                            >
+
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4v16M8 4v16M11 4v16M15 4v16M18 4v16M21 4v16" stroke-linecap="round" />
+                                </svg>
+
+                                Boleto
+
+                            </button>
+
+                        </div>
+
+                        <!-- Pagamento com cartão -->
+
+                        <div
+                            class="painel-pagamento ativa"
+                            data-painel="cartao"
+                        >
+
+                            <div class="campo">
+
+                                <label for="campo-num-cartao">
+                                    Número do cartão
+                                </label>
+
+                                <input
+                                    id="campo-num-cartao"
+                                    name="numero_cartao"
+                                    type="text"
+                                    placeholder="Apenas números"
+                                    maxlength="16"
+                                    inputmode="numeric"
+                                    oninput="this.value = this.value.replace(/\D/g, '')"
+                                />
+
+                            </div>
+
+                            <div class="linha-campos">
+
+                                <div class="campo">
+
+                                    <label for="campo-validade">
+                                        Validade
+                                    </label>
+
+                                    <input
+                                        id="campo-validade"
+                                        name="validade"
+                                        type="text"
+                                        placeholder="MM/AA"
+                                        maxlength="5"
+                                        inputmode="numeric"
+                                        oninput="let v = this.value.replace(/\D/g, ''); this.value = v.length > 2 ? v.substring(0,2) + '/' + v.substring(2,4) : v;"
+                                    />
+
+                                </div>
+
+                                <div class="campo">
+
+                                    <label for="campo-cvv">
+                                        CVV
+                                    </label>
+
+                                    <input
+                                        id="campo-cvv"
+                                        name="cvv"
+                                        type="text"
+                                        placeholder="000"
+                                        maxlength="3"
+                                        inputmode="numeric"
+                                        oninput="this.value = this.value.replace(/\D/g, '')"
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div class="campo">
+
+                                <label for="campo-parcelas">
+                                    Parcelas
+                                </label>
+
+                                <select id="campo-parcelas" name="parcelas">
+
+                                    <option value="1">
+                                        1x de R$ 197,00 (À vista)
+                                    </option>
+
+                                    <option value="2">
+                                        2x de R$ 98,50 sem juros
+                                    </option>
+
+                                    <option value="3">
+                                        3x de R$ 65,66 sem juros
+                                    </option>
+
+                                    <option value="4">
+                                        4x de R$ 49,25 sem juros
+                                    </option>
+
+                                    <option value="5">
+                                        5x de R$ 39,40 sem juros
+                                    </option>
+
+                                    <option value="6">
+                                        6x de R$ 32,83 sem juros
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Pagamento com Pix -->
+
+                        <div
+                            class="painel-pagamento"
+                            data-painel="pix"
+                            hidden
+                        >
+
+                            <div class="caixa-pix">
+
+                                <img
+                                    class="quadro-qr"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Link_pra_pagina_principal_da_Wikipedia-PT_em_codigo_QR_b.svg/1280px-Link_pra_pagina_principal_da_Wikipedia-PT_em_codigo_QR_b.svg.png"
+                                    alt="QR Code de exemplo"
+                                />
+
+                                Após confirmar, o QR Code do Pix aparece aqui.
+                                <br />
+                                Aprovação em poucos segundos.
+
+                            </div>
+
+                        </div>
+
+                        <!-- Pagamento com Boleto -->
+
+                        <div
+                            class="painel-pagamento"
+                            data-painel="boleto"
+                            hidden
+                        >
+
+                            <div class="caixa-boleto">
+
+                                <svg
+                                    class="icone-boleto"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"
+                                >
+
+                                    <path
+                                        d="M4 4v16M8 4v16M11 4v16M15 4v16M18 4v16M21 4v16"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                                <br />
+
+                                O boleto é gerado após a confirmação e vence em 3 dias úteis.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="bloco">
+
+                        <button
+                            class="botao-finalizar"
+                            type="submit"
+                        >
+
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                                <path d="m12 2 8.5 4.9v10.2L12 22l-8.5-4.9V6.9L12 2Z" />
+
+                                <path d="m8.5 12 2.5 2.5L16 9" />
+
+                            </svg>
+
+                            <span id="texto-botao-finalizar">
+                                Comprar agora
+                            </span>
+
+                        </button>
+
+                        <p class="rodape-forms">
+
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                                <path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z" />
+
+                            </svg>
+
+                            Pagamento processado em ambiente criptografado
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Resumo do pedido -->
+
+                <div class="coluna-resumo">
+
+                    <div class="cartao">
+
+                        <div class="capa-resumo">
+
+                            <img
+                                id="img-produto"
+                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+                                alt="Curso"
+                            />
+
+                        </div>
+
+                        <div class="corpo-resumo">
+
+                            <h2 id="titulo-produto">
+                                Excel Avançado do Zero ao Pro
+                            </h2>
+
+                            <p
+                                class="prova-social"
+                                id="prova-social-produto"
+                            >
+                                142 alunos já se matricularam
+                            </p>
+
+                            <div class="linha-preco">
+
+                                <span class="rotulo">
+                                    Total
+                                </span>
+
+                                <span
+                                    class="valor"
+                                    id="preco-produto"
+                                >
+                                    R$ 197,00
+                                </span>
+
+                            </div>
+
+                            <ul class="lista-garantias">
+
+                                <li>
+
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+
+                                    Acesso imediato após a confirmação
+
+                                </li>
+
+                                <li>
+
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+
+                                    Garantia de 7 dias — reembolso sem burocracia
+
+                                </li>
+
+                                <li>
+
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+
+                                    Acesso vitalício pelo computador ou celular
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+<!-- Pop-up de Sucesso -->
+    <div id="popup-sucesso" class="popup-overlay hidden">
+        <div class="popup-conteudo">
+            <div class="icone-sucesso">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>Tudo certo!</h2>
+            <p id="texto-popup">Compra finalizada com sucesso.</p>
+            <p class="texto-redirecionamento">
+                Redirecionando para a página inicial em <strong id="contador-popup">5</strong> segundos...
+            </p>
+        </div>
+    </div>
+    <script src="comprar.js"></script>
+
+</body>
+
+</html>

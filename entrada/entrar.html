@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - Bytehub</title>
+    <link rel="stylesheet" href="entr.css">
+</head>
+<body>
+    <div class="divc">
+        <div class="cabecalho">
+            <h1 class="titulo">Bytehub</h1>
+            <h2 class="slogan">Seu futuro começa aqui</h2>
+        </div>
+        
+        <!-- Formulário com ID para escutar o submit -->
+        <form id="formLogin" class="formulario">
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Insira seu e-mail" required>
+            </div>
+            
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <div class="input-wrapper">
+                    <input type="password" id="senha" placeholder="Insira sua senha" required>
+                    <button class="olho" type="button" onclick="mostrarSenha()">
+                        <img class="iconeo" id="iconeSenha" src="../icons/eye.svg" alt="Ver senha">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Botão do tipo submit e SEM a tag <a> por fora -->
+            <button type="submit" class="entra">Entrar</button>
+        </form>
+        
+        <p class="texto">Não tem conta? <a class="criar" href="../criar/criar.html">Criar uma</a></p>
+    </div>
+
+    <script src="entr.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Bytehub</title>
+    <link rel="stylesheet" href="criar.css">
+</head>
+
+<body>
+
+    <div class="divc scrollable">
+
+        <div class="cabecalho">
+            <h1 class="titulo">Bytehub</h1>
+            <h2 class="slogan">Dê o play no seu futuro</h2>
+        </div>
+
+        <form class="formulario" action="../index.html">
+
+            <div class="campo">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" placeholder="Insira seu nome completo" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Insira seu melhor e-mail" required>
+            </div>
+
+            <div class="campo">
+                <label for="telefone">Celular (WhatsApp)</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+            </div>
+
+            <div class="campo">
+                <label for="interesse">O que você quer aprender?</label>
+
+                <select id="interesse" required>
+                    <option value="" disabled selected>Selecione uma área...</option>
+                    <option value="programacao">Programação (Front-end, Back-end)</option>
+                    <option value="design">Design (UI/UX, Gráfico)</option>
+                    <option value="marketing">Marketing Digital</option>
+                    <option value="dados">Ciência de Dados / IA</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Criar Senha</label>
+
+                <div class="input-wrapper">
+                    <input type="password" id="senha" placeholder="Crie uma senha forte" required>
+
+                    <button class="olho" type="button" onclick="mostrarSenha()">
+                        <img class="iconeo" id="iconeSenha" src="../icons/eye.svg" alt="Ver senha">
+                    </button>
+                </div>
+            </div>
+
+            <div class="campo-checkbox">
+                <input type="checkbox" id="termos" required>
+
+                <label for="termos">
+                    Concordo com os
+                    <a href="#">Termos de Uso</a>
+                    e
+                    <a href="#">Política de Privacidade</a>.
+                </label>
+            </div>
+
+            <button type="submit" class="entra">Cadastrar</button>
+
+        </form>
+
+        <p class="texto">
+            Já tem uma conta?
+            <a class="criar" href="../entrada/entrar.html">Entrar</a>
+        </p>
+
+    </div>
+
+    <script src="criar.js"></script>
+
+</body>
+
+</html>
