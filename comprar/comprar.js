@@ -312,7 +312,7 @@ function exibirPopupSucesso(mensagem) {
         // Quando zerar, redireciona para index.html
         if (segundosRestantes <= 0) {
             clearInterval(intervalo);
-            window.location.href = "../index.html";
+            window.location.href = "../menu/index.html";
         }
     }, 1000);
 }

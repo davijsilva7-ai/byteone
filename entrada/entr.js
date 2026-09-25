@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (emailInput === usuario.email && senhaInput === usuario.senha) {
                 alert(`Login realizado com sucesso! Bem-vindo, ${usuario.nome}.`);
                 // Redireciona APENAS se os dados estiverem corretos
-                window.location.href = "../index.html";
+                window.location.href = "../menu/index.html";
             } else {
                 alert("E-mail ou senha incorretos!");
             }
